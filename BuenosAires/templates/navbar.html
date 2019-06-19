@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>xxx</title>
-
     <link rel="stylesheet" href="{% static './css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static './css/navbar.css' %}">
 
@@ -29,9 +28,122 @@
                     </li>
                   </ul>
                   <form class="form-inline my-2 my-lg-0 sesion">
-                    <button type="button" class="btn btn-success" href="">Inicar Sesion</button>
-                    <button type="button" class="btn btn-dark" href="">Registrarse</button>
+                    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#modallogin" >Iniciar Sesion</button>
+                    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#modalregistro" >Registrate</button>
                   </form>
                 </div>
               </nav>
+
+
+<!-- MODAL LOGIN -->
+
+<div class="modal fade" id="modallogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">LOGIN</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email </label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese email">
+            <small id="emailHelp" class="form-text text-muted">Nunca compartiremos tu email .</small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Contraseña</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingrese Contraseña">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Ingresar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- MODAL REGISTRO -->
+
+<div class="modal fade" id="modalregistro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Registro</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="needs-validation" novalidate>
+          <div class="form-row">
+            <div class="col-md-6 mb-3">
+              <label for="validationTooltip01">Nombre</label>
+              <input type="text" class="form-control" id="validationTooltip01" placeholder="Nicolas" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="validationTooltip02">Apellido</label>
+              <input type="text" class="form-control" id="validationTooltip02" placeholder="Rojas" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="validationTooltip02">Email</label>
+              <input type="email" class="form-control" id="validationTooltip02"  required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="validationTooltip02">Contraseña</label>
+              <input type="password" class="form-control" id="validationTooltip02"  required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-6 mb-3">
+              <label for="validationTooltip03">Ciudad</label>
+              <input type="text" class="form-control" id="validationTooltip03" placeholder="Santiago" required>
+              <div class="invalid-tooltip">
+                Ingrese una ciudad valida.
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="validationTooltip04">Comuna</label>
+              <input type="text" class="form-control" id="validationTooltip04" placeholder="Quilicura" required>
+              <div class="invalid-tooltip">
+                Ingrese una comuna valida.
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="validationTooltip05">Codigo Postal</label>
+              <input type="text" class="form-control" id="validationTooltip05"  required>
+              <div class="invalid-tooltip">
+                Ingrese codigo postal.
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary" type="submit">Registrar</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <script src="{% static './js/jquery-3.3.1.js' %}"></script>
+    <script src="{% static './js/popper.js' %}"></script>
+    <script src="{% static './js/app.js' %}"></script>
+    <script src="{% static './js/bootstrap.js' %}"></script>
 </body>
