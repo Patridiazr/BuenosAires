@@ -9,6 +9,8 @@ def footer (request):
     return render (request,'footer.html')
 def productos (request):
     return render (request,'productos.html')
+def solicitud (request):
+    return render (request,'solicitud.html')
 
 #CRUD USUARIOS
 

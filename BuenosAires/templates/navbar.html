@@ -18,19 +18,17 @@
                   <a class="navbar-brand" href="#">Buenos Aires</a>
                   <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                      <a class="nav-link" href="{% url 'index' %}">Inicio <span class="sr-only">(current)</span></a>
+                      <a class="nav-link" href="{% url 'index' %}">Inicio </a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link active" href="{% url 'productos' %}">Productos</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link active" href="">Solicitud</a>
+                      <a class="nav-link active" href="{% url 'solicitud' %}">Solicitud</a>
                     </li>
                   </ul>
-                  <li class="nav-item active">
-                    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#modallogin" >Iniciar Sesion</button>
-                    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#modalregistro" >Registrate</button>
-                  </li>
+                    <a  class="btn btn-success btn-lg active" role="button" aria-pressed="true" data-toggle="modal" data-target="#modallogin" >Iniciar Sesion</a><br>
+                    <a  class="btn btn-info btn-lg active" role="button" aria-pressed="true" data-toggle="modal" data-target="#modalregistro" >Registrate</a>
                 </div>
               </nav>
 
@@ -133,14 +131,6 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
 
     <script src="{% static './js/jquery-3.3.1.js' %}"></script>
     <script src="{% static './js/popper.js' %}"></script>
