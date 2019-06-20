@@ -30,21 +30,21 @@
 
 
 
-function usu(){
-    $.ajax ({
-        url : "http://127.0.0.1:8000/api/usuario/",
-        data : null,
-        type : 'GET',
+// function usu(){
+//     $.ajax ({
+//         url : "http://127.0.0.1:8000/api/usuario/",
+//         data : null,
+//         type : 'GET',
         
-        success : function(usuario){
-        usuario.forEach(persona => {
-            console.log(persona.username)
-        });
-        },
-        error : function(error){
-        alert("mal")
-        }
+//         success : function(usuario){
+//         usuario.forEach(persona => {
+//             console.log(persona.username)
+//         });
+//         },
+//         error : function(error){
+//         alert("mal")
+//         }
         
 
-    })
-}
+//     })
+// }

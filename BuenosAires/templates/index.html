@@ -7,7 +7,7 @@
     <title>Buenos Aires</title>
 
     <link rel="stylesheet" href="{% static './css/bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static './css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static './css/estilo.css' %}">
 
 </head>
 <body>
@@ -16,12 +16,32 @@
 
     <!-- CONTENIDO -->
 
+    <div class="jumbotron ">
+        <div class="container">
+        <div class="jumbotron-background ">
+            <img src="{% static './img/fondo-celeste.jpg' %}">
+          <h1 class="display-4">Aires Acondicionados</h1>
+          <p class="lead">Especialistas en Climatizacion.</p>
+        </div>
+        </div>
+    </div>
 
 
 
-
-
-
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">   
+                <div class="card">
+                <img src="{% static './img/aires.jpg' %}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h2 class="card-title">Lorem ipsum</h2>
+                    <p class="card-text">Lorem ipsum</p>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
 
     <!-- FOOTER -->
     {% include './footer.html' %}
