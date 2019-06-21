@@ -80,43 +80,47 @@
         </button>
       </div>
       <div class="modal-body">
-        <form class="needs-validation" novalidate>
-          <div class="form-row">
+        <form class="needs-validation" action="crear_U" method="POST">
+        {% csrf_token %}
+          <div class="form-row" >
             <div class="col-md-6 mb-3">
               <label for="validationTooltip01">Nombre</label>
-              <input type="text" class="form-control" id="validationTooltip01" placeholder="Nicolas" required>
+              <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nicolas" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="validationTooltip01">Rut</label>
+              <input type="number" class="form-control" name="rut" id="rut" placeholder="RUT" required>
             </div>
             <div class="col-md-6 mb-3">
               <label for="validationTooltip02">Apellido</label>
-              <input type="text" class="form-control" id="validationTooltip02" placeholder="Rojas" required>
+              <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Rojas" required>
             </div>
             <div class="col-md-6 mb-3">
               <label for="validationTooltip02">Email</label>
-              <input type="email" class="form-control" id="validationTooltip02"  required>
+              <input type="email" class="form-control" name="email" id="email"  required>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="col-md-12 mb-3">
               <label for="validationTooltip02">Contraseña</label>
-              <input type="password" class="form-control" id="validationTooltip02"  required>
+              <input type="password" class="form-control" name="contraseña" id="contraseña"  required>
             </div>
-          </div>
-          <div class="form-row">
+          
             <div class="col-md-6 mb-3">
               <label for="validationTooltip03">Ciudad</label>
-              <input type="text" class="form-control" id="validationTooltip03" placeholder="Santiago" required>
+              <input type="text" class="form-control" name="ciudad" id="ciudad" placeholder="Santiago" required>
               <div class="invalid-tooltip">
                 Ingrese una ciudad valida.
               </div>
             </div>
             <div class="col-md-3 mb-3">
               <label for="validationTooltip04">Comuna</label>
-              <input type="text" class="form-control" id="validationTooltip04" placeholder="Quilicura" required>
+              <input type="text" class="form-control" id="comuna" name="comuna" placeholder="Quilicura" required>
               <div class="invalid-tooltip">
                 Ingrese una comuna valida.
               </div>
             </div>
             <div class="col-md-3 mb-3">
               <label for="validationTooltip05">Codigo Postal</label>
-              <input type="text" class="form-control" id="validationTooltip05"  required>
+              <input type="number" class="form-control" id="codpos" name="codpos" required>
               <div class="invalid-tooltip">
                 Ingrese codigo postal.
               </div>
