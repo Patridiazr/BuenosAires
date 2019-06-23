@@ -7,6 +7,7 @@ from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register(r'usuario', views.UsuarioViewSet)
+router.register(r'solicitud', views.SolicitudViewSet)
 
 urlpatterns = [
    #NAVEGACION PAGINA
@@ -18,11 +19,12 @@ urlpatterns = [
 
 
    #CRUD USUARIOS
-   path('navbar/needs-validation/crear_U',views.crear_U, name="crear_U"),
+   path('navbar/crear_U',views.crear_U, name="crear_U"),
 
-   path('productos',views.productos,name="productos"),
-   path('solicitud',views.solicitud,name="solicitud"),
-   
+   #CRUD SOLICITUD
+      path('solicitud/soli_T',views.soli_t, name="soli_T"),
+
+  
 
    #API'S
    path('api/', include(router.urls)), 
