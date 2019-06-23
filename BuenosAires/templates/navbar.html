@@ -26,20 +26,45 @@
                     <li class="nav-item">
                       <a class="nav-link active" href="{% url 'solicitud' %}">Solicitud</a>
                     </li>
-                    {% if user.is_authenticated %}
-                    <li class="nav-item">
-                      <a class="nav-link active" href="{% url 'perfil' %}" >Perfil</a>
-                    </li>
-                    {% endif %}
                   </ul>
-                    {% if user.is_authenticated %}
-                      <a class="nav-link "  href="{% url 'cerrar_session' %}">Cerrar sesion</a>
-                    {% else %}
-                    <a  class="btn btn-success btn-lg active" role="button" aria-pressed="true" href="{% url 'Usuarios:log' %}" >Iniciar Sesion</a><br>
+                    <a  class="btn btn-success btn-lg active" role="button" aria-pressed="true" data-toggle="modal" data-target="#modallogin" >Iniciar Sesion</a><br>
                     <a  class="btn btn-info btn-lg active" role="button" aria-pressed="true" data-toggle="modal" data-target="#modalregistro" >Registrate</a>
-                    {% endif %}
                 </div>
               </nav>
+
+
+<!-- MODAL LOGIN -->
+
+<div class="modal fade" id="modallogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">LOGIN</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email </label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese email">
+            <small id="emailHelp" class="form-text text-muted">Nunca compartiremos tu email .</small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Contraseña</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingrese Contraseña">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Ingresar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 
@@ -55,39 +80,57 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="{% url 'crear_U' %}" method="POST">
+        <form class="needs-validation" action="crear_U" method="POST">
         {% csrf_token %}
           <div class="form-row" >
             <div class="col-md-6 mb-3">
-              <label for="nombre">Nombre</label>
-              <input type="text" class="form-control" name="username" id="username"  required>
+              <label for="validationTooltip01">Nombre</label>
+              <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nicolas" required>
             </div>
             <div class="col-md-6 mb-3">
-              <label for="email" >Email</label>
+              <label for="validationTooltip01">Rut</label>
+              <input type="number" class="form-control" name="rut" id="rut" placeholder="RUT" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="validationTooltip02">Apellido</label>
+              <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Rojas" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="validationTooltip02">Email</label>
               <input type="email" class="form-control" name="email" id="email"  required>
             </div>
             <div class="col-md-12 mb-3">
-              <label for="contraseña" >Contraseña</label>
-              <input type="password" class="form-control" name="password" id="password"  required>
+              <label for="validationTooltip02">Contraseña</label>
+              <input type="password" class="form-control" name="contraseña" id="contraseña"  required>
             </div>
+          
             <div class="col-md-6 mb-3">
-              <label for="direccion" >Direccion</label>
-              <input type="text" class="form-control" name="direccion" id="direccion" required>
-            </div>
-            <div class="col-md-6 mb-3">
-              <label for="ciudada" >Ciudad</label>
-              <input type="text" class="form-control" name="ciudad" id="ciudad"  required>
+              <label for="validationTooltip03">Ciudad</label>
+              <input type="text" class="form-control" name="ciudad" id="ciudad" placeholder="Santiago" required>
+              <div class="invalid-tooltip">
+                Ingrese una ciudad valida.
+              </div>
             </div>
             <div class="col-md-3 mb-3">
-              <label for="comuna">Comuna</label>
-              <input type="text" class="form-control" id="comuna" name="comuna"  required>
+              <label for="validationTooltip04">Comuna</label>
+              <input type="text" class="form-control" id="comuna" name="comuna" placeholder="Quilicura" required>
+              <div class="invalid-tooltip">
+                Ingrese una comuna valida.
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="validationTooltip05">Codigo Postal</label>
+              <input type="number" class="form-control" id="codpos" name="codpos" required>
+              <div class="invalid-tooltip">
+                Ingrese codigo postal.
+              </div>
             </div>
           </div>
-          <div class="modal-footer">
-      <button class="btn btn-primary" type="submit">Registrar</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-      </div>
+          <button class="btn btn-primary" type="submit">Registrar</button>
         </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>

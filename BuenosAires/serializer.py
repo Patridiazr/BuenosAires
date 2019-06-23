@@ -1,11 +1,7 @@
 from rest_framework import serializers
-from .models import Usuario,Solicitud
+from .models import Usuario
 
 class UsuarioSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Usuario
-        fields = ('url','username','email','password','direccion','ciudad','comuna') 
-class SolicitudSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Solicitud
-        fields = ('url','nombres','email','asunto','mensaje') 
+        fields = ('url','rut','nombre','apellido','email','contraseña','direccion','ciudad','comuna','codpos') 

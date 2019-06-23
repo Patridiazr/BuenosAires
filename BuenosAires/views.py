@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, logout, login as auth_login
 from django.contrib.auth.decorators import login_required
-from .models import Usuario, Solicitud
+from .models import Usuario
 
 # Create your views here.
 def index(request):
@@ -21,23 +21,26 @@ def solicitud (request):
 #import de api
 from rest_framework import viewsets
 from .serializer import UsuarioSerializer
-from .serializer import SolicitudSerializer
 
 #CRUD USUARIOS
 def crear_U(request):
-    username = request.POST.get('username')
-    email = request.POST.get('email')
-    password = request.POST.get('password')
-    direccion = request.POST.get('direccion')
-    ciudad = request.POST.get('ciudad')
-    comuna = request.POST.get('comuna')
-    usuario = Usuario(username=username,email=email,password=password,direccion=direccion,
-    ciudad=ciudad,comuna=comuna)
-    usu =User(username=username,email=email,password=password)
+    rut = request.POST.get('rut','')
+    nombre = request.POST.get('nombre','')
+    apellido = request.POST.get('apellido','')
+    email = request.POST.get('email','')
+    contraseña = request.POST.get('contraseña','')
+    direccion = request.POST.get('direccion','')
+    ciudad = request.POST.get('ciudad','')
+    comuna = request.POST.get('comuna','')
+    codpos = request.POST.get('codpos','')
+    usuario = Usuario(rut=rut,nombre=nombre, apellido=apellido,email=email,contraseña=contraseña,direccion=direccion,ciudad=ciudad,
+    comuna=comuna,codpos=codpos)
+    usu =User(rut=rut,nombre=nombre, apellido=apellido,email=email,contraseña=contraseña,direccion=direccion,ciudad=ciudad,
+    comuna=comuna,codpos=codpos)
     usuario.save()
     usu.save()
-    return redirect('index')
-    
+    return redirect('solicitud')
+
 
 
 #CRUD PRODUCTOS
@@ -46,16 +49,6 @@ def crear_U(request):
 
 
 #CRUD SOLICITUDES
-def soli_t(request):
-    nombres = request.POST.get('nombres')
-    email = request.POST.get('email')
-    asunto = request.POST.get('asunto')
-    mensaje = request.POST.get('mensaje')
-    solicitud = Solicitud(nombres=nombres,email=email,asunto=asunto,mensaje=mensaje)
-    solicitud.save()
-    return redirect ('index')
-
-
 
 
 #Serialyzer
@@ -63,6 +56,3 @@ def soli_t(request):
 class UsuarioViewSet(viewsets.ModelViewSet):
     queryset = Usuario.objects.all()
     serializer_class = UsuarioSerializer
-class SolicitudViewSet(viewsets.ModelViewSet):
-    queryset = Solicitud.objects.all()
-    serializer_class = SolicitudSerializer

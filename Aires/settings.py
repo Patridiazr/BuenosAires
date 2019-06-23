@@ -39,8 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'BuenosAires',
     'rest_framework',
-    'reset_migrations',
-    'Usuarios',
 ]
 
 MIDDLEWARE = [
@@ -81,8 +79,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle',
         'NAME': 'xe',
-        'USER': 'AC',
-        'PASSWORD': 'ac1',
+        'USER': 'baires',
+        'PASSWORD': 'Baires',
         'HOST': 'localhost',
         'PORT': '1521',
     }
@@ -126,7 +124,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
-
-AUTH_USER_MODEL = 'Usuarios.User'
-LOGOUT_REDIRECT_URL = 'Usuarios:log'
