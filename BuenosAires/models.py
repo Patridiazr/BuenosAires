@@ -3,12 +3,27 @@ from django.db import models
 # Create your models here.
 
 class Usuario(models.Model):
-    rut = models.IntegerField
-    nombre = models.CharField(max_length=100)
-    apellido =models.CharField(max_length=100)
-    email =models.EmailField(max_length=100)
-    contraseña = models.CharField(max_length=100)
+    username = models.CharField(max_length=100)
+    email = models.EmailField(max_length=100)
+    password = models.CharField(max_length=100)
     direccion = models.CharField(max_length=100)
     ciudad = models.CharField(max_length=30)
     comuna = models.CharField(max_length=100)
-    codpos = models.IntegerField
+
+class Solicitud(models.Model):
+    nombres = models.CharField(max_length=100)
+    direccion = models.CharField( default="default" ,max_length=100)
+    email = models.EmailField(max_length=100)
+    asunto = models.CharField(max_length=50)
+    mensaje = models.CharField(max_length=100)
+    estado = models.CharField(default="Pendiente",max_length=10)
+
+class ProduI(models.Model):
+    titulo = models.CharField(max_length=50)
+    descripcion = models.CharField(max_length=100)
+
+class Producto(models.Model):
+    titulo = models.CharField(max_length=50)
+    descripcion = models.CharField(max_length=100)
+    precio = models.IntegerField(default="0")
+    

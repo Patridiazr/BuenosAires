@@ -16,6 +16,31 @@
     {% include './navbar.html' %}
 
     <!-- CONTENIDO -->
+<!--Carta de productos--> 
+<br>
+        {% if productos %}
+            <div class="container">
+            <div class="row">
+        {% for p in productos %}
+        <div class="col-md-4">   
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title">{{p.titulo}}</h2>
+              <p class="card-text">{{p.descripcion}}</p>
+              <h3 class="card-text">${{p.precio}}</h3>
+              <a href='https://www.flow.cl/btn.php?token=0cmfxpr' target='_blank'>
+                <img src='https://www.flow.cl/img/botones/btn-pagar-celeste.png'>
+              </a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        </div>
+        </div>
+        {% else %}
+        <h4>No existen registros de servicio</h4>
+        {% endif %}
+        <br>
 
     <!-- FOOTER -->
     {% include './footer.html' %}
